@@ -1,5 +1,5 @@
 -------------------------------------------------------------------
 Mon Apr 26 16:57:22 2010 - jdsn@suse.de
 
-- initial version
+- initial version, split off from yast2-registration (fate#308494)
 - 2.19.0
