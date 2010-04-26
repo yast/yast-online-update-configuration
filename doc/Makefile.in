@@ -228,10 +228,14 @@ ybindir = @ybindir@
 ydatadir = @ydatadir@
 yncludedir = @yncludedir@
 ystartupdir = @ystartupdir@
-SUBDIRS = autodocs
+
+#SUBDIRS = autodocs
+SUBDIRS = 
 doc_DATA = 
 html_DATA = 
-EXTRA_DIST = $(doc_DATA) $(html_DATA)
+
+#EXTRA_DIST = $(doc_DATA) $(html_DATA)
+EXTRA_DIST = 
 all: all-recursive
 
 .SUFFIXES:

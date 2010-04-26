@@ -228,10 +228,14 @@ ybindir = ${prefix}/lib/YaST2/bin
 ydatadir = ${prefix}/share/YaST2/data
 yncludedir = ${prefix}/share/YaST2/include
 ystartupdir = ${prefix}/lib/YaST2
-SUBDIRS = autodocs
+
+#SUBDIRS = autodocs
+SUBDIRS = 
 doc_DATA = 
 html_DATA = 
-EXTRA_DIST = $(doc_DATA) $(html_DATA)
+
+#EXTRA_DIST = $(doc_DATA) $(html_DATA)
+EXTRA_DIST = 
 all: all-recursive
 
 .SUFFIXES:

@@ -190,8 +190,8 @@ ybindir = @ybindir@
 ydatadir = @ydatadir@
 yncludedir = @yncludedir@
 ystartupdir = @ystartupdir@
-agent_SCRIPTS = $(wildcard *.scr)
-scrconf_DATA = 
+agent_SCRIPTS = 
+scrconf_DATA = $(wildcard *.scr)
 EXTRA_DIST = $(agent_SCRIPTS) $(scrconf_DATA)
 all: all-am
 

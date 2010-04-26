@@ -1,7 +1,7 @@
 # Makefile.am for online-update-configuration/agents
 
-agent_SCRIPTS = $(wildcard *.scr)
+agent_SCRIPTS =
 
-scrconf_DATA =
+scrconf_DATA = $(wildcard *.scr)
 
 EXTRA_DIST = $(agent_SCRIPTS) $(scrconf_DATA)

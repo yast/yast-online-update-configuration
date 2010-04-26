@@ -190,8 +190,8 @@ ybindir = ${prefix}/lib/YaST2/bin
 ydatadir = ${prefix}/share/YaST2/data
 yncludedir = ${prefix}/share/YaST2/include
 ystartupdir = ${prefix}/lib/YaST2
-agent_SCRIPTS = $(wildcard *.scr)
-scrconf_DATA = 
+agent_SCRIPTS = 
+scrconf_DATA = $(wildcard *.scr)
 EXTRA_DIST = $(agent_SCRIPTS) $(scrconf_DATA)
 all: all-am
 
