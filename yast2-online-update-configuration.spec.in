@@ -1,0 +1,64 @@
+#
+# spec file for package yast2-online-update-configuration
+#
+# Copyright (c) 2010 SUSE LINUX Products GmbH, Nuernberg, Germany.
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via http://bugs.opensuse.org/
+#
+
+# norootforbuild
+
+@HEADER@
+Group:          System/YaST
+License:        GPL v2 or later
+Requires:       yast2 >= 2.17.0
+Requires:       yast2-packager >= 2.17.0
+Requires:       yast2-pkg-bindings >= 2.17.20
+
+PreReq:         %fillup_prereq
+BuildRequires:  yast2 >= 2.17.0
+BuildRequires:  perl-XML-Writer update-desktop-files yast2-devtools yast2-packager yast2-testsuite
+BuildRequires:  yast2-pkg-bindings >= 2.17.20
+BuildArch:      noarch
+
+
+Summary:        Configuration of Online Update
+
+%description
+Allows to configure automatic online update.
+
+%post
+%{fillup_only -ns automatic_online_update yast2-online-update-configuration}
+
+@PREP@
+
+@BUILD@
+
+@INSTALL@
+
+@CLEAN@
+
+%files
+%defattr(-,root,root)
+%doc @docdir@
+%dir @yncludedir@/online-update-configuration
+@yncludedir@/online-update-configuration/*
+@clientdir@/*.ycp
+@moduledir@/*.ycp
+@moduledir@/*.ybc
+@desktopdir@/online_update_configuration.desktop
+@schemadir@/autoyast/rnc/*.rnc
+/usr/lib/YaST2/bin/online_update
+# agent
+@scrconfdir@/cfg_automatic_online_update.scr
+# fillup
+@fillupdir@/sysconfig.automatic_online_update-yast2-online-update-configuration
