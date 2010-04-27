@@ -77,8 +77,8 @@ string getOUCHelp(symbol type)
 term getOUCDialog(symbol type)
 {
 
-    list<term> expertMenu = [ `item(`id(`repoManager), editSoftwareRepositories ),
-                              `item(`id(`register),    registerForSupport )
+    list<term> expertMenu = [ `item(`id(`repoManager), editSoftwareRepositories )
+                            //  , `item(`id(`register),    registerForSupport )
                             //  , `item(`id(`smolt),       sendDataToSmolt )
                         ];
 

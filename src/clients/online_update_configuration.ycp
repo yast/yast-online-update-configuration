@@ -131,7 +131,7 @@
                 {
                     y2milestone("Registration is needed to get an update source.");
 
-                    if ( Popup::YesNo( needToRegister:"" + "\n\n" + runRegistrationNow:"" ) )
+                    if ( Popup::YesNo( needToRegister + "\n\n" + runRegistrationNow ) )
                     {
                         y2milestone("User wants to run the registration in order to setup the default update repository.");
                         // trigger registration
