@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Fri Apr  8 15:56:56 CEST 2011 - jdsn@suse.de
+
+- fix proxy settings in automatic online update script, bnc#(678888)
+- make online-update script more robust
+
+-------------------------------------------------------------------
 Mon Apr 26 16:57:22 2010 - jdsn@suse.de
 
 - initial version, split off from yast2-registration (fate#308494)
