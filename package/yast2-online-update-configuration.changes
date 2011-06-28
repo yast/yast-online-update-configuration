@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Tue Jun 28 18:35:46 CEST 2011 - jdsn@suse.de
+
+- add split-provides to keep this module in zypper dup (bnc#695449)
+- 2.19.1 
+
+-------------------------------------------------------------------
 Mon Apr 26 16:57:22 2010 - jdsn@suse.de
 
 - initial version, split off from yast2-registration (fate#308494)
