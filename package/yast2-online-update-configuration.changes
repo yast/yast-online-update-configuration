@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Tue Sep 27 11:08:52 CEST 2011 - visnov@suse.cz
+
+- set dialog title
+- 2.21.1 
+
+-------------------------------------------------------------------
 Mon May 30 14:46:54 CEST 2011 - jdsn@suse.de
 
 - add split-provides to keep this module in zypper dup (bnc#695449)
