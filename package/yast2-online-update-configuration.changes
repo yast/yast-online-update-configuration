@@ -1,4 +1,11 @@
 -------------------------------------------------------------------
+Fri Oct 19 15:16:44 UTC 2012 - jdsn@suse.de
+
+- feature: filter patches by category in automatic update cronjob
+  (fate#313278)
+- 2.22.1
+
+-------------------------------------------------------------------
 Tue Sep 27 11:08:52 CEST 2011 - visnov@suse.cz
 
 - set dialog title
