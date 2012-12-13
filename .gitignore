@@ -33,3 +33,4 @@ Makefile.am.common
 Makefile.in
 missing
 mkinstalldirs
+DONE
