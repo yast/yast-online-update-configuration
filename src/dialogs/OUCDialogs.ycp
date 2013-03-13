@@ -109,8 +109,8 @@ term getOUCDialog(symbol type)
                             //  , `item(`id(`smolt),       sendDataToSmolt )
                         ];
 
-    list<term> updateIntervals = maplist(symbol intid, string intname, OnlineUpdateConfiguration::Intervals, {
-        return `item( `id(intid), intname);
+    list<term> updateIntervals = maplist(symbol intid, map<symbol,string> i, OnlineUpdateConfiguration::Intervals, {
+        return `item( `id(intid), i[`trans]:"none" );
     });
 
     term upRepo = `Frame(updateRepository,
