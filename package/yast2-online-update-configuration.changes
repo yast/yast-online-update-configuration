@@ -1,4 +1,9 @@
 -------------------------------------------------------------------
+Wed Mar 13 16:51:35 UTC 2013 - jdsn@suse.de
+
+- translate cron intervals and update categories (bnc#807773)
+
+-------------------------------------------------------------------
 Fri Oct 19 15:16:44 UTC 2012 - jdsn@suse.de
 
 - feature: filter patches by category in automatic update cronjob
