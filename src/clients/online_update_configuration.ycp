@@ -184,12 +184,8 @@ you may find current contact information at www.novell.com
 
         if (ret == `repoManager)
         {
-            WFM::call("inst_source");
-        }
-
-        if (ret == `smolt)
-        {
-            WFM::call("system-profile");
+            // inst_source was renamed to repositories (bnc#828139)
+            WFM::call("repositories");
         }
 
         if (ret == `register)
