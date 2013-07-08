@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Mon Jul  8 16:56:22 UTC 2013 - jdsn@suse.de
+
+- fix the call of the repositories module (bnc#828139)
+- 2.24.0
+
+-------------------------------------------------------------------
 Wed Mar 13 16:51:35 UTC 2013 - jdsn@suse.de
 
 - translate cron intervals and update categories (bnc#807773)
