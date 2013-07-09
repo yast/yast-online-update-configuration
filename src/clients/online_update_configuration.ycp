@@ -257,7 +257,11 @@ you may find current contact information at www.novell.com
 
     } until (ret == `ok || ret == `next || ret == `abort || ret == `cancel || ret == `back);
 
-    Pkg::SourceFinishAll();
+    // do not finish sources if we were told not to do so (bnc#828132)
+    if (! contains(wfm_args, `no_source_finish))
+    {
+        Pkg::SourceFinishAll();
+    }
 
     if (! is(ret, symbol))  ret = `next;
 
