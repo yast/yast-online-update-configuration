@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Tue Jul  9 12:30:27 UTC 2013 - jdsn@suse.de
+
+- do not finish sources if called from other module (bnc#828132)
+- 2.24.1
+
+-------------------------------------------------------------------
 Mon Jul  8 16:56:22 UTC 2013 - jdsn@suse.de
 
 - fix the call of the repositories module (bnc#828139)
