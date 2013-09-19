@@ -15,9 +15,14 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 
-# norootforbuild
 
-@HEADER@
+Name:           yast2-online-update-configuration
+Version:        3.1.0
+Release:        0
+
+BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+Source0:        %{name}-%{version}.tar.bz2
+
 Group:          System/YaST
 License:        GPL-2.0
 # Wizard::SetDesktopTitleAndIcon
@@ -29,10 +34,10 @@ Provides:       yast2-registration:/usr/share/YaST2/clients/online_update_config
 
 PreReq:         %fillup_prereq
 BuildRequires:  yast2 >= 2.17.0
-BuildRequires:  perl-XML-Writer update-desktop-files yast2-devtools yast2-packager yast2-testsuite
+BuildRequires:  perl-XML-Writer update-desktop-files yast2-packager yast2-testsuite
+BuildRequires:  yast2-devtools >= 3.0.6
 BuildRequires:  yast2-pkg-bindings >= 2.17.20
 BuildArch:      noarch
-
 
 Requires:       yast2-ruby-bindings >= 1.0.0
 
@@ -44,25 +49,27 @@ Allows to configure automatic online update.
 %post
 %{fillup_only -ns automatic_online_update yast2-online-update-configuration}
 
-@PREP@
+%prep
+%setup -n %{name}-%{version}
 
-@BUILD@
+%build
+%yast_build
 
-@INSTALL@
+%install
+%yast_install
 
-@CLEAN@
 
 %files
 %defattr(-,root,root)
-%doc @docdir@
-%dir @yncludedir@/online-update-configuration
-@yncludedir@/online-update-configuration/*
-@clientdir@/*.rb
-@moduledir@/*.rb
-@desktopdir@/online_update_configuration.desktop
-@schemadir@/autoyast/rnc/*.rnc
+%doc %{yast_docdir}
+%dir %{yast_yncludedir}/online-update-configuration
+%{yast_yncludedir}/online-update-configuration/*
+%{yast_clientdir}/*.rb
+%{yast_moduledir}/*.rb
+%{yast_desktopdir}/online_update_configuration.desktop
+%{yast_schemadir}/autoyast/rnc/*.rnc
 /usr/lib/YaST2/bin/online_update
 # agent
-@scrconfdir@/cfg_automatic_online_update.scr
+%{yast_scrconfdir}/cfg_automatic_online_update.scr
 # fillup
-@fillupdir@/sysconfig.automatic_online_update-yast2-online-update-configuration
+/var/adm/fillup-templates/sysconfig.automatic_online_update-yast2-online-update-configuration
