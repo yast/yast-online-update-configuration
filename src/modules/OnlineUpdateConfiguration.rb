@@ -48,7 +48,7 @@ module Yast
       @skipInteractivePatches = true
       @autoAgreeWithLicenses = false
       @includeRecommends = false
-      @use_delta_rpm = true
+      @use_delta_rpm = zypp_config.use_delta_rpm?
       @updateInterval = :weekly
       @currentCategories = []
       @OUCmodified = false

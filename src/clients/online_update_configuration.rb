@@ -149,6 +149,13 @@ module Yast
         :Value,
         OnlineUpdateConfiguration.includeRecommends
       )
+
+      UI.ChangeWidget(
+        Id(:use_delta_rpm),
+        :Value,
+        OnlineUpdateConfiguration.use_delta_rpm
+      )
+
       UI.ChangeWidget(
         Id(:category),
         :Value,
@@ -179,6 +186,11 @@ module Yast
           OnlineUpdateConfiguration.includeRecommends = Convert.to_boolean(
             UI.QueryWidget(Id(:includeRecommends), :Value)
           )
+
+          OnlineUpdateConfiguration.use_delta_rpm = Convert.to_boolean(
+            UI.QueryWidget(Id(:use_delta_rpm), :Value)
+          )
+
           OnlineUpdateConfiguration.enableAOU = Convert.to_boolean(
             UI.QueryWidget(Id(:automaticOnlineUpdate), :Value)
           )
