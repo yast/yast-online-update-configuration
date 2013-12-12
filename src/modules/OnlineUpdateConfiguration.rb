@@ -28,9 +28,12 @@
 #
 # $Id: OnlineUpdateConfiguration.ycp 1 2008-09-10 09:45:05Z jdsn $
 require "yast"
+require "online-update-configuration/zypp_config"
 
 module Yast
   class OnlineUpdateConfigurationClass < Module
+    include ZyppConfiguration
+
     def main
       Yast.import "Pkg"
 
@@ -45,6 +48,7 @@ module Yast
       @skipInteractivePatches = true
       @autoAgreeWithLicenses = false
       @includeRecommends = false
+      @use_delta_rpm = true
       @updateInterval = :weekly
       @currentCategories = []
       @OUCmodified = false
@@ -546,6 +550,8 @@ module Yast
           path(".sysconfig.automatic_online_update.AOU_PATCH_CATEGORIES")
         )
       )
+      @use_delta_rpm = zypp_config.use_delta_rpm?
+
       @currentCategories = Builtins.splitstring(patchCategories, " ")
       @currentCategories = Builtins.filter(@currentCategories) do |s|
         s != nil && s != ""
@@ -617,6 +623,7 @@ module Yast
         path(".sysconfig.automatic_online_update.AOU_INCLUDE_RECOMMENDS"),
         @includeRecommends == true ? "true" : "false"
       )
+      @use_delta_rpm ? zypp_config.activate_delta_rpm : zypp_config.deactivate_delta_rpm
       catConf = ""
       if Ops.greater_than(Builtins.size(@currentCategories), 0)
         catConf = Builtins.mergestring(@currentCategories, " ")
@@ -665,6 +672,7 @@ module Yast
     publish :variable => :skipInteractivePatches, :type => "boolean"
     publish :variable => :autoAgreeWithLicenses, :type => "boolean"
     publish :variable => :includeRecommends, :type => "boolean"
+    publish :variable => :use_delta_rpm, :type => "boolean"
     publish :variable => :updateInterval, :type => "symbol"
     publish :variable => :currentCategories, :type => "list <string>"
     publish :variable => :OUCmodified, :type => "boolean"

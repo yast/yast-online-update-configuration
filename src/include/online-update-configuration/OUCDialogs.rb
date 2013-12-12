@@ -69,6 +69,7 @@ module Yast
       @skipInteractivePatches = _("Skip Interactive Patches")
       @autoAgreeWithLicenses = _("Agree with Licenses")
       @includeRecommends = _("Include Recommended Packages")
+      @use_delta_rpm = _("Use delta rpms")
       @currentUpdateRepo = _("Current Update Repository:")
       @needToRegister = _(
         "In order to add the default update repository\nyou have to register this product."
@@ -210,6 +211,14 @@ module Yast
                     Id(:includeRecommends),
                     @includeRecommends,
                     OnlineUpdateConfiguration.includeRecommends == true ? true : false
+                  )
+                ),
+                VSpacing(0.2),
+                Left(
+                  CheckBox(
+                    Id(:use_delta_rpm),
+                    @use_delta_rpm,
+                    OnlineUpdateConfiguration.use_delta_rpm
                   )
                 ),
                 VSpacing(0.8),
