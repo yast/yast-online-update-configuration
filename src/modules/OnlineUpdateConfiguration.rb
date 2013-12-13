@@ -32,7 +32,7 @@ require "online-update-configuration/zypp_config"
 
 module Yast
   class OnlineUpdateConfigurationClass < Module
-    include ZyppConfiguration
+    attr_reader :zypp_config
 
     def main
       Yast.import "Pkg"
@@ -42,7 +42,7 @@ module Yast
 
       textdomain "online-update-configuration"
 
-
+      @zypp_config = ZyppConfig.new
 
       @enableAOU = false
       @skipInteractivePatches = true
