@@ -550,7 +550,6 @@ module Yast
           path(".sysconfig.automatic_online_update.AOU_PATCH_CATEGORIES")
         )
       )
-      @use_delta_rpm = zypp_config.use_delta_rpm?
 
       @currentCategories = Builtins.splitstring(patchCategories, " ")
       @currentCategories = Builtins.filter(@currentCategories) do |s|
@@ -587,6 +586,11 @@ module Yast
         settings,
         "include_recommends",
         @includeRecommends
+      )
+      @use_delta_rpm = Ops.get_boolean(
+        settings,
+        "use_delta_rpm",
+        @use_delta_rpm
       )
       @currentCategories = Convert.convert(
         Ops.get(settings, ["category_filter", "category"], @currentCategories),
@@ -660,6 +664,7 @@ module Yast
         "skip_interactive_patches"       => @skipInteractivePatches,
         "auto_agree_with_licenses"       => @autoAgreeWithLicenses,
         "include_recommends"             => @includeRecommends,
+        "use_delta_rpm"                  => @use_delta_rpm,
         "update_interval"                => intervalSymbolToString(
           @updateInterval,
           :name

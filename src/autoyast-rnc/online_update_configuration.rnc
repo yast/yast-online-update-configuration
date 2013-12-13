@@ -9,6 +9,7 @@ enable_automatic_online_update = element enable_automatic_online_update { BOOLEA
 skip_interactive_patches = element skip_interactive_patches { BOOLEAN }
 auto_agree_with_licenses = element auto_agree_with_licenses { BOOLEAN }
 include_recommends = element include_recommends { BOOLEAN }
+use_delta_rpm = element use_delta_rpm { BOOLEAN }
 update_interval  = element update_interval { text  }
 
 category_filter = element category_filter { LIST, category* }
