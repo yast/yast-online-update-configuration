@@ -197,10 +197,10 @@ module Yast
           OnlineUpdateConfiguration.includeRecommends ? @enabledMsg : @disabledMsg
         )
 
-        summary = Summary.AddHeader(summary, @use_delta_rpm)
+        summary = Summary.AddHeader(summary, @use_deltarpm)
         summary = Summary.AddLine(
           summary,
-          OnlineUpdateConfiguration.use_delta_rpm ? @enabledMsg : @disabledMsg
+          OnlineUpdateConfiguration.use_deltarpm ? @enabledMsg : @disabledMsg
         )
         summary = Summary.AddHeader(summary, @filterByCategory)
         summary = Summary.AddLine(
@@ -258,9 +258,9 @@ module Yast
         OnlineUpdateConfiguration.includeRecommends
       )
       UI.ChangeWidget(
-        Id(:use_delta_rpm),
+        Id(:use_deltarpm),
         :Value,
-        OnlineUpdateConfiguration.use_delta_rpm
+        OnlineUpdateConfiguration.use_deltarpm
       )
       UI.ChangeWidget(
         Id(:category),
@@ -294,9 +294,7 @@ module Yast
           OnlineUpdateConfiguration.includeRecommends = Convert.to_boolean(
             UI.QueryWidget(Id(:includeRecommends), :Value)
           )
-          OnlineUpdateConfiguration.use_delta_rpm = Convert.to_boolean(
-            UI.QueryWidget(Id(:use_delta_rpm), :Value)
-          )
+          OnlineUpdateConfiguration.use_deltarpm = UI.QueryWidget(Id(:use_deltarpm), :Value)
           # reset categories to disable the filter
           catFilter = Convert.to_boolean(UI.QueryWidget(Id(:category), :Value))
           OnlineUpdateConfiguration.currentCategories = [] if !catFilter

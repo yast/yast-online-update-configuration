@@ -48,7 +48,7 @@ module Yast
       @skipInteractivePatches = true
       @autoAgreeWithLicenses = false
       @includeRecommends = false
-      @use_delta_rpm = zypp_config.use_delta_rpm?
+      @use_deltarpm = zypp_config.use_deltarpm?
       @updateInterval = :weekly
       @currentCategories = []
       @OUCmodified = false
@@ -587,11 +587,7 @@ module Yast
         "include_recommends",
         @includeRecommends
       )
-      @use_delta_rpm = Ops.get_boolean(
-        settings,
-        "use_delta_rpm",
-        @use_delta_rpm
-      )
+      @use_deltarpm = settings.fetch('use_deltarpm', @use_deltarpm)
       @currentCategories = Convert.convert(
         Ops.get(settings, ["category_filter", "category"], @currentCategories),
         :from => "any",
@@ -627,7 +623,7 @@ module Yast
         path(".sysconfig.automatic_online_update.AOU_INCLUDE_RECOMMENDS"),
         @includeRecommends == true ? "true" : "false"
       )
-      @use_delta_rpm ? zypp_config.activate_delta_rpm : zypp_config.deactivate_delta_rpm
+      @use_deltarpm ? zypp_config.activate_deltarpm : zypp_config.deactivate_deltarpm
       catConf = ""
       if Ops.greater_than(Builtins.size(@currentCategories), 0)
         catConf = Builtins.mergestring(@currentCategories, " ")
@@ -664,7 +660,7 @@ module Yast
         "skip_interactive_patches"       => @skipInteractivePatches,
         "auto_agree_with_licenses"       => @autoAgreeWithLicenses,
         "include_recommends"             => @includeRecommends,
-        "use_delta_rpm"                  => @use_delta_rpm,
+        "use_deltarpm"                  => @use_deltarpm,
         "update_interval"                => intervalSymbolToString(
           @updateInterval,
           :name
@@ -677,7 +673,7 @@ module Yast
     publish :variable => :skipInteractivePatches, :type => "boolean"
     publish :variable => :autoAgreeWithLicenses, :type => "boolean"
     publish :variable => :includeRecommends, :type => "boolean"
-    publish :variable => :use_delta_rpm, :type => "boolean"
+    publish :variable => :use_deltarpm, :type => "boolean"
     publish :variable => :updateInterval, :type => "symbol"
     publish :variable => :currentCategories, :type => "list <string>"
     publish :variable => :OUCmodified, :type => "boolean"

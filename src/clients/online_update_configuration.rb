@@ -151,9 +151,9 @@ module Yast
       )
 
       UI.ChangeWidget(
-        Id(:use_delta_rpm),
+        Id(:use_deltarpm),
         :Value,
-        OnlineUpdateConfiguration.use_delta_rpm
+        OnlineUpdateConfiguration.use_deltarpm
       )
 
       UI.ChangeWidget(
@@ -187,9 +187,7 @@ module Yast
             UI.QueryWidget(Id(:includeRecommends), :Value)
           )
 
-          OnlineUpdateConfiguration.use_delta_rpm = Convert.to_boolean(
-            UI.QueryWidget(Id(:use_delta_rpm), :Value)
-          )
+          OnlineUpdateConfiguration.use_deltarpm = UI.QueryWidget(Id(:use_deltarpm), :Value)
 
           OnlineUpdateConfiguration.enableAOU = Convert.to_boolean(
             UI.QueryWidget(Id(:automaticOnlineUpdate), :Value)
