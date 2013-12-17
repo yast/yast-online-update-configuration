@@ -33,7 +33,7 @@ describe ZyppConfig do
   end
 
   describe "#activate_deltarpm" do
-    it "can activate delta rpm option in zypp config" do
+    it "activates delta rpm option in zypp config" do
       ZyppConfig.any_instance.stub(:get_delta_rpm_config_value)
       ZyppConfig.any_instance.stub(:set_delta_rpm_config_value)
       config = ZyppConfig.new
@@ -43,7 +43,7 @@ describe ZyppConfig do
   end
 
   describe "#deactivate_deltarpm" do
-    it "can deactivate delta rpm option in zypp config" do
+    it "deactivates delta rpm option in zypp config" do
       ZyppConfig.any_instance.stub(:get_delta_rpm_config_value)
       ZyppConfig.any_instance.stub(:set_delta_rpm_config_value)
       config = ZyppConfig.new
