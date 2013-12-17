@@ -28,9 +28,12 @@
 #
 # $Id: OnlineUpdateConfiguration.ycp 1 2008-09-10 09:45:05Z jdsn $
 require "yast"
+require "online-update-configuration/zypp_config"
 
 module Yast
   class OnlineUpdateConfigurationClass < Module
+    attr_reader :zypp_config
+
     def main
       Yast.import "Pkg"
 
@@ -39,12 +42,13 @@ module Yast
 
       textdomain "online-update-configuration"
 
-
+      @zypp_config = ZyppConfig.new
 
       @enableAOU = false
       @skipInteractivePatches = true
       @autoAgreeWithLicenses = false
       @includeRecommends = false
+      @use_deltarpm = zypp_config.use_deltarpm?
       @updateInterval = :weekly
       @currentCategories = []
       @OUCmodified = false
@@ -546,6 +550,7 @@ module Yast
           path(".sysconfig.automatic_online_update.AOU_PATCH_CATEGORIES")
         )
       )
+
       @currentCategories = Builtins.splitstring(patchCategories, " ")
       @currentCategories = Builtins.filter(@currentCategories) do |s|
         s != nil && s != ""
@@ -582,6 +587,7 @@ module Yast
         "include_recommends",
         @includeRecommends
       )
+      @use_deltarpm = settings.fetch('use_deltarpm', @use_deltarpm)
       @currentCategories = Convert.convert(
         Ops.get(settings, ["category_filter", "category"], @currentCategories),
         :from => "any",
@@ -617,6 +623,7 @@ module Yast
         path(".sysconfig.automatic_online_update.AOU_INCLUDE_RECOMMENDS"),
         @includeRecommends == true ? "true" : "false"
       )
+      @use_deltarpm ? zypp_config.activate_deltarpm : zypp_config.deactivate_deltarpm
       catConf = ""
       if Ops.greater_than(Builtins.size(@currentCategories), 0)
         catConf = Builtins.mergestring(@currentCategories, " ")
@@ -653,6 +660,7 @@ module Yast
         "skip_interactive_patches"       => @skipInteractivePatches,
         "auto_agree_with_licenses"       => @autoAgreeWithLicenses,
         "include_recommends"             => @includeRecommends,
+        "use_deltarpm"                  => @use_deltarpm,
         "update_interval"                => intervalSymbolToString(
           @updateInterval,
           :name
@@ -665,6 +673,7 @@ module Yast
     publish :variable => :skipInteractivePatches, :type => "boolean"
     publish :variable => :autoAgreeWithLicenses, :type => "boolean"
     publish :variable => :includeRecommends, :type => "boolean"
+    publish :variable => :use_deltarpm, :type => "boolean"
     publish :variable => :updateInterval, :type => "symbol"
     publish :variable => :currentCategories, :type => "list <string>"
     publish :variable => :OUCmodified, :type => "boolean"

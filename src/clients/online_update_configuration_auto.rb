@@ -115,7 +115,7 @@ module Yast
       Builtins.y2milestone("online_update_configuration_auto finished")
       Builtins.y2milestone("----------------------------------------")
 
-      deep_copy(@ret) 
+      deep_copy(@ret)
 
       # EOF
     end
@@ -197,6 +197,11 @@ module Yast
           OnlineUpdateConfiguration.includeRecommends ? @enabledMsg : @disabledMsg
         )
 
+        summary = Summary.AddHeader(summary, @use_deltarpm)
+        summary = Summary.AddLine(
+          summary,
+          OnlineUpdateConfiguration.use_deltarpm ? @enabledMsg : @disabledMsg
+        )
         summary = Summary.AddHeader(summary, @filterByCategory)
         summary = Summary.AddLine(
           summary,
@@ -253,6 +258,11 @@ module Yast
         OnlineUpdateConfiguration.includeRecommends
       )
       UI.ChangeWidget(
+        Id(:use_deltarpm),
+        :Value,
+        OnlineUpdateConfiguration.use_deltarpm
+      )
+      UI.ChangeWidget(
         Id(:category),
         :Value,
         Ops.greater_than(
@@ -284,6 +294,7 @@ module Yast
           OnlineUpdateConfiguration.includeRecommends = Convert.to_boolean(
             UI.QueryWidget(Id(:includeRecommends), :Value)
           )
+          OnlineUpdateConfiguration.use_deltarpm = UI.QueryWidget(Id(:use_deltarpm), :Value)
           # reset categories to disable the filter
           catFilter = Convert.to_boolean(UI.QueryWidget(Id(:category), :Value))
           OnlineUpdateConfiguration.currentCategories = [] if !catFilter
