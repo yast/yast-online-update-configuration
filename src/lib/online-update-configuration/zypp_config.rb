@@ -1,10 +1,11 @@
 class ZyppConfig
-  CONFIG_USE_DELTA_RPM = Yast::Path.new(".etc.zypp_conf.value.main.\"download.use_deltarpm\"")
+  CONFIG_USE_DELTARPM = Yast::Path.new(".etc.zypp_conf.value.main.\"download.use_deltarpm\"")
 
   def initialize
+    # Default config for delta rpms in /etc/zypp/zypp.conf is true
     @use_deltarpm = true
     current_config = get_delta_rpm_config_value
-    # Default config for delta rpms in zypp.conf is true
+    # Libzypp accepts a variety of 'false' option values
     @use_deltarpm = !['0', 'no', 'false', 'off', '-'].include?(current_config.downcase) if current_config
   end
 

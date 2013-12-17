@@ -32,19 +32,23 @@ describe ZyppConfig do
     end
   end
 
-  it "can activate delta rpm option in zypp config" do
-    ZyppConfig.any_instance.stub(:get_delta_rpm_config_value)
-    ZyppConfig.any_instance.stub(:set_delta_rpm_config_value)
-    config = ZyppConfig.new
-    expect(config).to receive(:set_delta_rpm_config_value).with(true)
-    expect(config.activate_deltarpm)
+  describe "#activate_deltarpm" do
+    it "can activate delta rpm option in zypp config" do
+      ZyppConfig.any_instance.stub(:get_delta_rpm_config_value)
+      ZyppConfig.any_instance.stub(:set_delta_rpm_config_value)
+      config = ZyppConfig.new
+      expect(config).to receive(:set_delta_rpm_config_value).with(true)
+      expect(config.activate_deltarpm)
+    end
   end
 
-  it "can deactivate delta rpm option in zypp config" do
-    ZyppConfig.any_instance.stub(:get_delta_rpm_config_value)
-    ZyppConfig.any_instance.stub(:set_delta_rpm_config_value)
-    config = ZyppConfig.new
-    expect(config).to receive(:set_delta_rpm_config_value).with(false)
-    expect(config.deactivate_deltarpm)
+  describe "#deactivate_deltarpm" do
+    it "can deactivate delta rpm option in zypp config" do
+      ZyppConfig.any_instance.stub(:get_delta_rpm_config_value)
+      ZyppConfig.any_instance.stub(:set_delta_rpm_config_value)
+      config = ZyppConfig.new
+      expect(config).to receive(:set_delta_rpm_config_value).with(false)
+      expect(config.deactivate_deltarpm)
+    end
   end
 end
