@@ -35,7 +35,7 @@ Provides:       yast2-registration:/usr/share/YaST2/clients/online_update_config
 PreReq:         %fillup_prereq
 BuildRequires:  yast2 >= 2.17.0
 BuildRequires:  perl-XML-Writer update-desktop-files yast2-packager yast2-testsuite
-BuildRequires:  yast2-devtools >= 3.1.10
+BuildRequires:  yast2-devtools >= 3.1.14
 BuildRequires:  yast2-pkg-bindings >= 2.17.20
 BuildArch:      noarch
 
