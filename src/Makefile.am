@@ -28,6 +28,6 @@ desktop_DATA = \
 fillup_DATA = \
   fillup/sysconfig.automatic_online_update-yast2-online-update-configuration
 
-EXTRA_DIST = $(module_DATA) $(client_DATA) $(ynclude_DATA) $(schemafiles_DATA) $(ybin_SCRIPTS) $(desktop_DATA) $(fillup_DATA) $(lib_DATA)
+EXTRA_DIST = $(module_DATA) $(client_DATA) $(ynclude_DATA) $(schemafiles_DATA) $(ybin_SCRIPTS) $(desktop_DATA) $(fillup_DATA) $(ylib_DATA)
 
 include $(top_srcdir)/Makefile.am.common
