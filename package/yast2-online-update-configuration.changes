@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Wed Dec 18 09:00:16 UTC 2013 - vmoravec@suse.com
+
+- Fix missing lib dir in makefile and specfile 
+- 3.1.3
+
+-------------------------------------------------------------------
 Tue Dec 17 13:20:40 UTC 2013 - vmoravec@suse.com
 
 - Add option for using deltarpms during update - FATE#314867

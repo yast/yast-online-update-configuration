@@ -17,7 +17,7 @@
 
 
 Name:           yast2-online-update-configuration
-Version:        3.1.2
+Version:        3.1.3
 Release:        0
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -35,7 +35,7 @@ Provides:       yast2-registration:/usr/share/YaST2/clients/online_update_config
 PreReq:         %fillup_prereq
 BuildRequires:  yast2 >= 2.17.0
 BuildRequires:  perl-XML-Writer update-desktop-files yast2-packager yast2-testsuite
-BuildRequires:  yast2-devtools >= 3.1.10
+BuildRequires:  yast2-devtools >= 3.1.15
 BuildRequires:  yast2-pkg-bindings >= 2.17.20
 BuildArch:      noarch
 
@@ -66,6 +66,8 @@ Allows to configure automatic online update.
 %{yast_yncludedir}/online-update-configuration/*
 %{yast_clientdir}/*.rb
 %{yast_moduledir}/*.rb
+%dir %{yast_libdir}/online_update_configuration
+%{yast_libdir}/online_update_configuration
 %{yast_desktopdir}/online_update_configuration.desktop
 %{yast_schemadir}/autoyast/rnc/*.rnc
 /usr/lib/YaST2/bin/online_update

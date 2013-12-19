@@ -7,6 +7,10 @@ client_DATA = \
   clients/online_update_configuration_auto.rb \
   clients/online_update_configuration.rb
 
+ylibdir = @ylibdir@/online-update-configuration
+ylib_DATA = \
+  lib/online_update_configuration/zypp_config.rb
+
 yncludedir = @yncludedir@/online-update-configuration
 ynclude_DATA = \
   include/online-update-configuration/OUCDialogs.rb
@@ -24,6 +28,6 @@ desktop_DATA = \
 fillup_DATA = \
   fillup/sysconfig.automatic_online_update-yast2-online-update-configuration
 
-EXTRA_DIST = $(module_DATA) $(client_DATA) $(ynclude_DATA) $(schemafiles_DATA) $(ybin_SCRIPTS) $(desktop_DATA) $(fillup_DATA)
+EXTRA_DIST = $(module_DATA) $(client_DATA) $(ynclude_DATA) $(schemafiles_DATA) $(ybin_SCRIPTS) $(desktop_DATA) $(fillup_DATA) $(ylib_DATA)
 
 include $(top_srcdir)/Makefile.am.common
