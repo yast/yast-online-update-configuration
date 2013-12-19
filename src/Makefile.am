@@ -9,7 +9,7 @@ client_DATA = \
 
 ylibdir = @ylibdir@/online-update-configuration
 ylib_DATA = \
-  lib/online_update_configuration/zypp_config.rb
+  lib/online-update-configuration/zypp_config.rb
 
 yncludedir = @yncludedir@/online-update-configuration
 ynclude_DATA = \
