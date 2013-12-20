@@ -66,8 +66,8 @@ Allows to configure automatic online update.
 %{yast_yncludedir}/online-update-configuration/*
 %{yast_clientdir}/*.rb
 %{yast_moduledir}/*.rb
-%dir %{yast_libdir}/online_update_configuration
-%{yast_libdir}/online_update_configuration
+%dir %{yast_libdir}/online-update-configuration
+%{yast_libdir}/online-update-configuration
 %{yast_desktopdir}/online_update_configuration.desktop
 %{yast_schemadir}/autoyast/rnc/*.rnc
 /usr/lib/YaST2/bin/online_update
