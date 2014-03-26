@@ -46,14 +46,30 @@ else
     zcmd="$zcmd --no-recommends"
 fi
 
+
+function runzypper {
+    # run passed arguments
+    "$@"
+    local status=$?
+    # the return code 103 indicates a succesful patch of the zypper package
+    # other patches might stil be waiting
+    if [ $status -eq 103 ]; then
+        echo "The Zypper package was patched, rerunning update to apply remaining patches."
+        # rerun passed zypper command and use new status as return value
+        "$@"
+        status=$?
+    fi
+    exit $status
+}
+
 # trim whitespaces
 AOU_PATCH_CATEGORIES=`echo $AOU_PATCH_CATEGORIES`
 # run the update
 if [ -z "$AOU_PATCH_CATEGORIES" ] ; then
-  $zcmd
+  runzypper $zcmd
 else
   for cat in $AOU_PATCH_CATEGORIES ; do
-    $zcmd --category "$cat"
+    runzypper $zcmd --category "$cat"
   done
 fi
 
