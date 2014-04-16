@@ -1,4 +1,11 @@
 -------------------------------------------------------------------
+Wed Apr 16 13:29:46 UTC 2014 - lslezak@suse.cz
+
+- registration client has been renamed to "scc" (bnc#870869)
+- zypp_config.rb: fixed a typo in the constant name
+- 3.1.5
+
+-------------------------------------------------------------------
 Wed Mar 26 14:56:00 UTC 2014 - robin.roth@kit.edu
 
 - Rerun zypper if it returns 103 which indicates that an update to 
