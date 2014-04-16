@@ -27,10 +27,10 @@ class ZyppConfig
 
   def set_delta_rpm_config_value new_value
     return if new_value == use_deltarpm?
-    Yast::SCR.Write(CONFIG_USE_DELTA_RPM, new_value)
+    Yast::SCR.Write(CONFIG_USE_DELTARPM, new_value)
   end
 
   def get_delta_rpm_config_value
-    Yast::SCR.Read(CONFIG_USE_DELTA_RPM)
+    Yast::SCR.Read(CONFIG_USE_DELTARPM)
   end
 end

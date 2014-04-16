@@ -249,8 +249,8 @@ module Yast
         end
 
         if @ret == :register
-          if WFM.ClientExists("inst_suse_register")
-            WFM.call("inst_suse_register")
+          if WFM.ClientExists("scc")
+            WFM.call("scc")
           else
             Popup.Error(
               _("The registration module is not available.") + "\n" +
