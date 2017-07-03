@@ -1,4 +1,12 @@
 -------------------------------------------------------------------
+Fri Jun 30 11:30:17 UTC 2017 - lslezak@suse.cz
+
+- Install the patches for all selected categories (not just the
+  first one) (bsc#1044018)
+- Properly handle the exist status for multiple categories
+- 3.1.6
+
+-------------------------------------------------------------------
 Wed Apr 16 13:29:46 UTC 2014 - lslezak@suse.cz
 
 - registration client has been renamed to "scc" (bnc#870869)
