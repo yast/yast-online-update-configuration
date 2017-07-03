@@ -2,11 +2,14 @@
 *.la
 *.lo
 *.m4
-*.ybc
 *.pot
-.dep
-.deps
+*.exp
+*.log
+*.sum
 .libs
+.yardoc/
+doc/
+runtest.sh
 package/*.bz2
 stamp-h*
 autom4te.cache
