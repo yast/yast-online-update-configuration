@@ -16,6 +16,11 @@
 #
 
 
+#Compat macro for new _fillupdir macro introduced in Nov 2017
+%if ! %{defined _fillupdir}
+  %define _fillupdir /var/adm/fillup-templates
+%endif
+
 Name:           yast2-online-update-configuration
 Version:        3.1.6
 Release:        0
@@ -74,4 +79,4 @@ Allows to configure automatic online update.
 # agent
 %{yast_scrconfdir}/cfg_automatic_online_update.scr
 # fillup
-/var/adm/fillup-templates/sysconfig.automatic_online_update-yast2-online-update-configuration
+%{_fillupdir}/sysconfig.automatic_online_update-yast2-online-update-configuration
