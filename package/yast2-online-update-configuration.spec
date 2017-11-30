@@ -16,7 +16,7 @@
 #
 
 Name:           yast2-online-update-configuration
-Version:        3.1.6
+Version:        4.0.0
 Release:        0
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
