@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Wed Jun 27 15:08:56 CEST 2018 - schubi@suse.de
+
+- Added additional searchkeys to desktop file (fate#321043).
+- 4.0.1
+
+-------------------------------------------------------------------
 Thu Nov 30 06:38:15 UTC 2017 - rbrown@suse.com
 
 - Replace references to /var/adm/fillup-templates with new
