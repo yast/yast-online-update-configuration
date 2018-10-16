@@ -1,4 +1,9 @@
 -------------------------------------------------------------------
+Tue Oct 16 15:38:55 CEST 2018 - schubi@suse.de
+
+- Added license file to spec.
+
+-------------------------------------------------------------------
 Wed Jun 27 15:08:56 CEST 2018 - schubi@suse.de
 
 - Added additional searchkeys to desktop file (fate#321043).
