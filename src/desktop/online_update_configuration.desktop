@@ -11,7 +11,7 @@ X-SuSE-YaST-AutoInstRequires=lan,proxy
 X-SuSE-YaST-AutoInstSchema=online_update_configuration.rnc
 X-SuSE-YaST-Keywords=online,update,YOU,patch
 
-Icon=yast-online_update
+Icon=yast-update-online-configuration
 Exec=/sbin/yast2 online_update_configuration
 
 Name=Online Update Configuration
