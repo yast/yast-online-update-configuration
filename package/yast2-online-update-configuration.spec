@@ -69,7 +69,7 @@ Allows to configure automatic online update.
 %{yast_libdir}/online-update-configuration
 %{yast_desktopdir}/online_update_configuration.desktop
 %{yast_schemadir}/autoyast/rnc/*.rnc
-%{_datadir}/icons/*
+%{yast_icondir}
 %license COPYING
 /usr/lib/YaST2/bin/online_update
 # agent
