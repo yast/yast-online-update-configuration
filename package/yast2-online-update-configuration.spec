@@ -16,7 +16,7 @@
 #
 
 Name:           yast2-online-update-configuration
-Version:        4.0.1
+Version:        4.1.0
 Release:        0
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -69,6 +69,7 @@ Allows to configure automatic online update.
 %{yast_libdir}/online-update-configuration
 %{yast_desktopdir}/online_update_configuration.desktop
 %{yast_schemadir}/autoyast/rnc/*.rnc
+%{yast_icondir}
 %license COPYING
 /usr/lib/YaST2/bin/online_update
 # agent
