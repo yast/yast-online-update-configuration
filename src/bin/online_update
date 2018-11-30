@@ -59,6 +59,7 @@ function runzypper {
         "$@"
         status=$?
     fi
+
     return $status
 }
 
