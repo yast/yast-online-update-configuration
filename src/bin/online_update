@@ -59,7 +59,7 @@ function runzypper {
         "$@"
         status=$?
     fi
-    exit $status
+    return $status
 }
 
 # trim whitespaces
