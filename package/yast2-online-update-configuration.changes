@@ -1,4 +1,13 @@
 -------------------------------------------------------------------
+Fri Nov 30 10:50:51 UTC 2018 - dgonzalez@suse.com
+
+- Install the patches for all selected categories (not just the
+  first one), avoiding having missing security patches
+  (bsc#1044018, bsc#1091210)
+- Properly handle the exist status for multiple categories
+- 3.1.6
+
+-------------------------------------------------------------------
 Wed Apr 16 13:29:46 UTC 2014 - lslezak@suse.cz
 
 - registration client has been renamed to "scc" (bnc#870869)
