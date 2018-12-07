@@ -59,8 +59,7 @@ function runzypper {
         "$@"
         status=$?
     fi
-
-    return $status
+    exit $status
 }
 
 # trim whitespaces
@@ -69,12 +68,8 @@ AOU_PATCH_CATEGORIES=`echo $AOU_PATCH_CATEGORIES`
 if [ -z "$AOU_PATCH_CATEGORIES" ] ; then
   runzypper $zcmd
 else
-  # handle errors for multiple categories
-  ret=0
-
   for cat in $AOU_PATCH_CATEGORIES ; do
-    runzypper $zcmd --category "$cat" || ret=$?
+    runzypper $zcmd --category "$cat"
   done
-
-  exit $ret
 fi
+
