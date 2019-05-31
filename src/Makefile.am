@@ -23,7 +23,7 @@ ybin_SCRIPTS = \
   bin/online_update
 
 desktop_DATA = \
-  desktop/online_update_configuration.desktop
+  desktop/org.openSUSE.YaST.OnlineUpdateConfiguration.desktop
 
 fillup_DATA = \
   fillup/sysconfig.automatic_online_update-yast2-online-update-configuration
