@@ -12,67 +12,68 @@
 # license that conforms to the Open Source Definition (Version 1.9)
 # published by the Open Source Initiative.
 
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
 Name:           yast2-online-update-configuration
 Version:        4.1.0
 Release:        0
-
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-Source0:        %{name}-%{version}.tar.bz2
-
 Group:          System/YaST
 License:        GPL-2.0
+Summary:        Configuration of Online Update
+Url:            https://github.com/yast/yast-online-update-configuration
+
+Source0:        %{name}-%{version}.tar.bz2
+
 # Wizard::SetDesktopTitleAndIcon
 Requires:       yast2 >= 2.21.0
 Requires:       yast2-packager >= 2.17.0
 Requires:       yast2-pkg-bindings >= 2.17.20
-Conflicts:      yast2-registration <= 2.19.1
-Provides:       yast2-registration:/usr/share/YaST2/clients/online_update_configuration.ycp
+Requires:       yast2-ruby-bindings >= 1.0.0
 
 PreReq:         %fillup_prereq
 BuildRequires:  yast2 >= 2.17.0
 BuildRequires:  perl-XML-Writer update-desktop-files yast2-packager yast2-testsuite
 BuildRequires:  yast2-devtools >= 3.1.15
 BuildRequires:  yast2-pkg-bindings >= 2.17.20
+
+Conflicts:      yast2-registration <= 2.19.1
+
+Provides:       yast2-registration:/usr/share/YaST2/clients/online_update_configuration.ycp
+
 BuildArch:      noarch
-
-Requires:       yast2-ruby-bindings >= 1.0.0
-
-Summary:        Configuration of Online Update
 
 %description
 Allows to configure automatic online update.
 
-%post
-%{fillup_only -ns automatic_online_update yast2-online-update-configuration}
-
 %prep
-%setup -n %{name}-%{version}
+%setup -q
 
 %build
 %yast_build
 
 %install
 %yast_install
+%yast_metainfo
 
+%post
+%{fillup_only -ns automatic_online_update yast2-online-update-configuration}
 
 %files
-%defattr(-,root,root)
-%doc %{yast_docdir}
-%dir %{yast_yncludedir}/online-update-configuration
-%{yast_yncludedir}/online-update-configuration/*
-%{yast_clientdir}/*.rb
-%{yast_moduledir}/*.rb
-%dir %{yast_libdir}/online-update-configuration
-%{yast_libdir}/online-update-configuration
-%{yast_desktopdir}/online_update_configuration.desktop
-%{yast_schemadir}/autoyast/rnc/*.rnc
-%{yast_icondir}
 %license COPYING
-/usr/lib/YaST2/bin/online_update
+%doc %{yast_docdir}
+%{yast_yncludedir}
+%{yast_clientdir}
+%{yast_moduledir}
+%{yast_libdir}
+%{yast_desktopdir}
+%{yast_metainfodir}
+%{yast_schemadir}
+%{yast_icondir}
+%{yast_ybindir}
 # agent
-%{yast_scrconfdir}/cfg_automatic_online_update.scr
+%{yast_scrconfdir}
 # fillup
 %{_fillupdir}/sysconfig.automatic_online_update-yast2-online-update-configuration
+
+%changelog
