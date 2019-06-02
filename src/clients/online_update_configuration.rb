@@ -87,7 +87,7 @@ module Yast
       Wizard.SetContents(@moduleTitle, @contents, @help, false, true)
 
       if Mode.normal
-        Wizard.SetDesktopTitleAndIcon("org.openSUSE.YaST.OnlineUpdateConfiguration")
+        Wizard.SetDesktopTitleAndIcon("org.opensuse.yast.OnlineUpdateConfiguration")
       else
         Wizard.SetTitleIcon("yast-online_update")
       end
