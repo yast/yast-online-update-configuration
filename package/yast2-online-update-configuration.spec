@@ -25,17 +25,20 @@ Url:            https://github.com/yast/yast-online-update-configuration
 
 Source0:        %{name}-%{version}.tar.bz2
 
+BuildRequires:  yast2 >= 2.17.0
+BuildRequires:  perl-XML-Writer
+BuildRequires:  update-desktop-files
+BuildRequires:  yast2-packager
+BuildRequires:  yast2-testsuite
+BuildRequires:  yast2-devtools >= 4.2.2
+BuildRequires:  yast2-pkg-bindings >= 2.17.20
+
+PreReq:         %fillup_prereq
 # Wizard::SetDesktopTitleAndIcon
 Requires:       yast2 >= 2.21.0
 Requires:       yast2-packager >= 2.17.0
 Requires:       yast2-pkg-bindings >= 2.17.20
 Requires:       yast2-ruby-bindings >= 1.0.0
-
-PreReq:         %fillup_prereq
-BuildRequires:  yast2 >= 2.17.0
-BuildRequires:  perl-XML-Writer update-desktop-files yast2-packager yast2-testsuite
-BuildRequires:  yast2-devtools >= 3.1.15
-BuildRequires:  yast2-pkg-bindings >= 2.17.20
 
 Conflicts:      yast2-registration <= 2.19.1
 
