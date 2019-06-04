@@ -14,6 +14,7 @@ X-SuSE-YaST-Keywords=online,update,YOU,patch
 Icon=yast-update-online-configuration
 Exec=/sbin/yast2 online_update_configuration
 
-Name=Online Update Configuration
+Name=YaST Online Update Configuration
 GenericName=Online Update Configuration
+Comment=Configure Online Update Setup
 StartupNotify=true
