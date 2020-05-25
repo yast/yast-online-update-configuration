@@ -26,12 +26,12 @@ Url:            https://github.com/yast/yast-online-update-configuration
 Source0:        %{name}-%{version}.tar.bz2
 
 BuildRequires:  yast2 >= 2.17.0
-BuildRequires:  perl-XML-Writer
 BuildRequires:  update-desktop-files
 BuildRequires:  yast2-packager
-BuildRequires:  yast2-testsuite
 BuildRequires:  yast2-devtools >= 4.2.2
 BuildRequires:  yast2-pkg-bindings >= 2.17.20
+BuildRequires:  rubygem(%rb_default_ruby_abi:rspec)
+BuildRequires:  rubygem(%rb_default_ruby_abi:yast-rake)
 
 PreReq:         %fillup_prereq
 # Wizard::SetDesktopTitleAndIcon
@@ -52,8 +52,10 @@ Allows to configure automatic online update.
 %prep
 %setup -q
 
+%check
+%yast_check
+
 %build
-%yast_build
 
 %install
 %yast_install
