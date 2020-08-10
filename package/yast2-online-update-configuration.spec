@@ -16,7 +16,7 @@
 #
 
 Name:           yast2-online-update-configuration
-Version:        4.3.0
+Version:        4.3.1
 Release:        0
 Group:          System/YaST
 License:        GPL-2.0
@@ -43,6 +43,8 @@ Requires:       yast2-ruby-bindings >= 1.0.0
 Conflicts:      yast2-registration <= 2.19.1
 
 Provides:       yast2-registration:/usr/share/YaST2/clients/online_update_configuration.ycp
+
+Supplements:    autoyast(online_update_configuration)
 
 BuildArch:      noarch
 
