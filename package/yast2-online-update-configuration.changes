@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Thu Aug 20 13:25:49 UTC 2020 - David Diaz <dgonzalez@suse.com>
+
+- Set X-SuSE-YaST-AutoInstClient in desktop file (bsc#1175516).
+- 4.2.2
+
+-------------------------------------------------------------------
 Tue Aug 27 18:28:54 CEST 2019 - schubi@suse.de
 
 - Set X-SuSE-YaST-AutoInstResource in desktop file (bsc#144894).
