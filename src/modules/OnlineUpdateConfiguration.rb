@@ -453,8 +453,8 @@ module Yast
     end
 
     # setup cronjob for an automatic online update
+    # @param interval [Symbol] for the interval `daily, `weekly, `monthly
     # @return true if successful
-    # @para smybol for the interval `daily, `weekly, `monthly
     def setOnlineUpdateCronjob(interval)
       cronSel = ""
       if interval == :monthly
