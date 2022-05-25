@@ -588,11 +588,8 @@ module Yast
         @includeRecommends
       )
       @use_deltarpm = settings.fetch('use_deltarpm', @use_deltarpm)
-      @currentCategories = Convert.convert(
-        Ops.get(settings, ["category_filter", "category"], @currentCategories),
-        :from => "any",
-        :to   => "list <string>"
-      )
+
+      @currentCategories = get_category_filter(settings["category_filter"])
 
       getInterval = Ops.get_string(settings, "update_interval", "")
 
@@ -603,7 +600,6 @@ module Yast
 
       true
     end
-
 
     # Write()
     def Write
@@ -665,7 +661,7 @@ module Yast
           @updateInterval,
           :name
         ),
-        "category_filter"                => { "category" => @currentCategories }
+        "category_filter"                => @currentCategories
       }
     end
 
@@ -694,6 +690,17 @@ module Yast
     publish :function => :Import, :type => "boolean (map)"
     publish :function => :Write, :type => "boolean ()"
     publish :function => :Export, :type => "map ()"
+
+  private
+
+    def get_category_filter(category_filter)
+      return category_filter if category_filter.is_a?(Array)
+
+      return category_filter.fetch("category", []) if category_filter.is_a?(Hash)
+
+      []
+    end
+
   end
 
   OnlineUpdateConfiguration = OnlineUpdateConfigurationClass.new
