@@ -13,7 +13,7 @@ online_update_configuration =
       auto_agree_with_licenses? &
       include_recommends? &
       update_interval? &
-      category_filter? &
+      (category_filter | nested_category_filter)? &
       use_deltarpm?
     )
   }
@@ -25,5 +25,12 @@ auto_agree_with_licenses = element auto_agree_with_licenses { BOOLEAN }
 include_recommends = element include_recommends { BOOLEAN }
 use_deltarpm = element use_deltarpm { BOOLEAN }
 update_interval  = element update_interval { STRING  }
+
 category_filter = element category_filter { LIST, category* }
-category = element category { STRING }
+category = element (category | listentry) { STRING }
+
+# Support for the old category_filter format (bsc#1198848)
+nested_category_filter = element category_filter {
+    MAP,
+    element category { LIST, category* }
+  }
