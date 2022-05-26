@@ -694,11 +694,14 @@ module Yast
   private
 
     def get_category_filter(category_filter)
-      return category_filter if category_filter.is_a?(Array)
-
-      return category_filter.fetch("category", []) if category_filter.is_a?(Hash)
-
-      []
+      case category_filter
+      when Array
+        category_filter
+      when Hash
+        category_filter.fetch("category", [])
+      else
+        []
+      end
     end
 
   end
