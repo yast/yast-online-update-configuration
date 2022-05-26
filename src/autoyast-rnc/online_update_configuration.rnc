@@ -26,4 +26,4 @@ include_recommends = element include_recommends { BOOLEAN }
 use_deltarpm = element use_deltarpm { BOOLEAN }
 update_interval  = element update_interval { STRING  }
 category_filter = element category_filter { LIST, category* }
-category = element category { STRING }
+category = element (category | listentry) { STRING }
