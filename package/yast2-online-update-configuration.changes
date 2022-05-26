@@ -1,4 +1,11 @@
 -------------------------------------------------------------------
+Thu May 26 06:42:47 UTC 2022 - Imobach Gonzalez Sosa <igonzalezsosa@suse.com>
+
+- Reduce nesting in the "category_filter" section of the AutoYaST
+  profile (bsc#1198848). The old (nested) format is still accepted.
+- 4.3.3
+
+-------------------------------------------------------------------
 Thu Aug 20 13:25:49 UTC 2020 - David Diaz <dgonzalez@suse.com>
 
 - Set X-SuSE-YaST-AutoInstClient in desktop file (bsc#1175516).
