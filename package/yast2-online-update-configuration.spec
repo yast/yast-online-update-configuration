@@ -16,7 +16,7 @@
 #
 
 Name:           yast2-online-update-configuration
-Version:        4.6.0
+Version:        5.0.0
 Release:        0
 Group:          System/YaST
 License:        GPL-2.0
