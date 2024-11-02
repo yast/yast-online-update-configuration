@@ -1,4 +1,9 @@
 -------------------------------------------------------------------
+Sat Nov  2 06:18:51 UTC 2024 - Danny Sauer <danny@dannysauer.com>
+
+- 5.0.2 check extra paths profile.sh
+
+-------------------------------------------------------------------
 Wed Aug 30 20:16:10 UTC 2023 - Josef Reidinger <jreidinger@suse.cz>
 
 - 5.0.0 (bsc#1185510)
