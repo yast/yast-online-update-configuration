@@ -16,7 +16,7 @@
 #
 
 Name:           yast2-online-update-configuration
-Version:        5.0.0
+Version:        5.0.1
 Release:        0
 Group:          System/YaST
 License:        GPL-2.0
@@ -35,6 +35,7 @@ BuildRequires:  rubygem(%rb_default_ruby_abi:yast-rake)
 
 PreReq:         %fillup_prereq
 # Wizard::SetDesktopTitleAndIcon
+Requires:       aaa_base
 Requires:       yast2 >= 2.21.0
 Requires:       yast2-packager >= 2.17.0
 Requires:       yast2-pkg-bindings >= 2.17.20
