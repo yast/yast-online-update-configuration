@@ -1,7 +1,14 @@
 #!/bin/bash
 
 # source the profile to get proper proxy settings, bnc#(678888)
-. /etc/profile.d/profile.sh
+for F in {/usr,}/etc/profile.d/profile.sh
+do
+    if [ -f "$F" ]
+    then
+        . "$F"
+        break
+    fi
+done
 
 zyppercmd="/usr/bin/zypper"
 zcmd="/bin/false"
